@@ -1,0 +1,55 @@
+#	This is an incomplete OBJ model of a cube (it only gives the geometry,
+#	without defining the material properties)
+#
+#	Jean-Yves Hervé [2019-11-23]
+#-----------------------------------------------------------------------------
+#	Yes, the # sign indicates comments, but be very careful only to use
+#	that only for full-line comments, and not after data, on the same line
+#
+#
+#        v4 ################### v3
+#          #|                ##
+#         # |               # #
+#        #  |           v2 #  #
+#    v1 ###################   #
+#       #   |             #   #
+#       #   |             #   #
+#       #   |             #   #
+#       #   +-------------#---# v7
+#       #  / v8           #  #
+#       # /               # #
+#       #/                ##
+#    v5 ################### v6
+#
+
+#------------------------------------------------------
+# List of vertices
+#   X    Y    Z
+#------------------------------------------------------
+v -1.0 -1.0 +1.0
+v +1.0 -1.0 +1.0
+v +1.0 +1.0 +1.0
+v -1.0 +1.0 +1.0
+v -1.0 -1.0 -1.0
+v +1.0 -1.0 -1.0
+v +1.0 +1.0 -1.0
+v -1.0 +1.0 -1.0
+
+
+#------------------------------------------------------
+# List of faces:
+# 	- vertex indices go 1-n
+#	- faces are traveled counterclockwise
+#-------------------------------------------------------
+# Top face
+f 1 2 3 4
+# Left face
+f 1 4 8 5
+# Right face
+f 2 6 7 3
+# front face
+f 1 5 6 2
+# back face
+f 4 3 7 8
+# bottom face
+#f 5 8 7 6

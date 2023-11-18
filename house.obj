@@ -1,0 +1,76 @@
+#	This is an incomplete OBJ model of a cube (it only gives the geometry,
+#	without defining the material properties)
+#
+#	Jean-Yves Hervé [2019-11-23]
+#-----------------------------------------------------------------------------
+#	Yes, the # sign indicates comments, but be very careful only to use
+#	that only for full-line comments, and not after data, on the same line
+#
+
+
+
+		
+#
+#        v4 #                 # v3
+#          #|   v9           ##
+#         # |               # #
+#        #  |           v2 #  #
+#    v1 ###################   #
+#       #   |             #   #
+#       #   |             #   #
+#       #   |             #   #
+#       #   +-------------#---# v7
+#       #  / v8           #  #
+#       # /               # #
+#       #/                ##
+#    v5 ################### v6
+#
+
+#------------------------------------------------------
+# List of vertices
+#   X    Y    Z
+#------------------------------------------------------
+v -1.0 -1.0 +1.0 #1
+v +1.0 -1.0 +1.0
+v +1.0 +1.0 +1.0
+v -1.0 +1.0 +1.0
+v -1.0 -1.0 -1.0
+v +1.0 -1.0 -1.0
+v +1.0 +1.0 -1.0
+v -1.0 +1.0 -1.0
+v  0.0 -1.0 +1.5
+v  0.0 +1.0 +1.5
+v -0.2 -1.0 -1.0 #11
+v  0.2 -1.0 -1.0 #12
+v -0.2 -1.0 -0.2 #13
+v  0.2 -1.0 -0.2 #14
+
+
+
+#------------------------------------------------------
+# List of faces:
+# 	- vertex indices go 1-n
+#	- faces are traveled counterclockwise
+#-------------------------------------------------------
+#left roof face rectangle
+f 9 10 4 1
+#front triangle
+f 1 2 9
+#back triangle
+f 3 4 10
+#right roof face rectangle
+f 2 3 10 9
+# Left face
+f 1 4 8 5
+# Right face
+f 2 6 7 3
+# front face left of door
+f 1 5 11 13
+# front face right of door
+f 6 2 14 12
+# front face above door
+f 2 1 13 14
+# back face
+f 4 3 7 8
+# bottom face
+f 5 8 7 6
