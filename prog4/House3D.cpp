@@ -45,13 +45,27 @@ void House3D::draw() const
 
 void House3D::initMeshAndNormals_(ObjectFile mesh)
 {
-	Point3D vertex;
+	FaceLiteral face;
 	for (const auto& entry : mesh.faceList) {
-        // std::cout << "These are the vertices for a face" << "'\n";
-        for (const auto& item : entry) {
-                vertex = mesh.vertexList[item];
-                // std::cout << vertex.point3D.X << ',' <<   vertex.point3D.Y << ',' << vertex.point3D.Z << ',' << "\n";
-        }
-        // std::cout << "----------------------\n";
-    }
+		for(int i = 0; i < entry.vertexList.size(); i++){
+			Point3D vertex = mesh.vertexList[entry.vertexList[i]];
+			face.vertexList.push_back(vertex);
+			// std::cout << vertex.point3D.X << ',' <<   vertex.point3D.Y << ',' << vertex.point3D.Z << ',' << "\n";
+			std::pair<float,float> textureCoord = mesh.textureCoords[entry.textureList[i]];
+			face.textureList.push_back(textureCoord);
+			// std::cout <<  "    " <<   textureCoord.first << ',' <<   textureCoord.second <<  "\n";
+			Point3D normal = mesh.normalCoords[entry.normalList[i]];
+			face.normalList.push_back(normal);
+			// std::cout <<  "    " << "    " << normal.point3D.X << ',' <<   normal.point3D.Y << ',' << normal.point3D.Z << ',' << "\n";
+		}
+	}
+	// for (const auto& entry : mesh.faceList) {
+    //     // std::cout << "These are the vertices for a face" << "'\n";
+    //     for (const auto& item : entry) {
+    //             vertex = mesh.vertexList[item];
+	// 			face.push_back(vertex);
+    //             // std::cout << vertex.point3D.X << ',' <<   vertex.point3D.Y << ',' << vertex.point3D.Z << ',' << "\n";
+    //     }
+    //     // std::cout << "----------------------\n";
+    // }
 }

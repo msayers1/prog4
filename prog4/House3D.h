@@ -26,6 +26,8 @@ namespace graphics3d
             float height_;
 			
             void initMeshAndNormals_(ObjectFile mesh);
+
+			std::vector<FaceLiteral> faceList_;
 			
 		public:
 		

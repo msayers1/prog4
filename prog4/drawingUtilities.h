@@ -9,7 +9,7 @@
 #define UTILITIES_H
 
 #include "glPlatform.h"
-
+#include "common.h"
 //	Rendering modes
 //
 enum class RenderingMode
@@ -36,6 +36,8 @@ union Material
 void setCurrentMaterial(GLfloat ambRed, GLfloat ambGreen, GLfloat ambBlue, GLfloat difRed,
 	GLfloat difGreen, GLfloat difBlue, GLfloat specRed, GLfloat specGreen,
 	GLfloat specBlue, GLfloat shine);
+void setCurrentMaterial(RGB ambientRGB, RGB diffuseRGB, RGB specularRGB, RGB emissionRGB, GLfloat shiny, GLfloat illum, GLfloat opaqueness, GLfloat opticalDensity);
+
 void setCurrentMaterial(const Material& mat);
 
 //void saveAndSetMaterial(Material& currentMat, const Material& newMat);

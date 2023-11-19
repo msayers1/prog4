@@ -78,6 +78,23 @@ union Point3D
 	float aPoint3D[3];
 };
 
+
+
+//	RGB or other 3 coordinates
+//
+union RGB
+{
+	struct sRGB
+	{
+		float	R,
+				G,
+				B;
+	}rgb;
+	
+	float aRGB[3];
+};
+
+
 //	Point using homogeneous coordinates
 //
 union Point4D
@@ -93,12 +110,70 @@ union Point4D
 	float aPoint4D[4];
 };
 
+
+
+struct FaceIDs {
+	std::vector<int> vertexList;
+	std::vector<int> textureList;
+	std::vector<int> normalList;
+	
+  	// Constructor to initialize the structure
+    FaceIDs()
+        : vertexList({}), textureList({}), normalList({}) {}
+	// Clear function to reset the structure members
+    void clear() {
+        vertexList.clear(); // Reset to default value for int
+        textureList.clear(); // Reset to default value for double
+        normalList.clear(); // Clear the string
+    };
+};
+
+
+struct FaceLiteral {
+	std::vector<Point3D> vertexList;
+	std::vector<std::pair<float,float>> textureList;
+	std::vector<Point3D> normalList;
+	
+  	// Constructor to initialize the structure
+    FaceLiteral()
+        : vertexList({}), textureList({}), normalList({}) {}
+	// Clear function to reset the structure members
+    void clear() {
+        vertexList.clear(); // Reset to default value for int
+        textureList.clear(); // Reset to default value for double
+        normalList.clear(); // Clear the string
+    };
+};
+
+
+struct MaterialData
+{
+    std::string name_, map_Kd_;
+	float Ns_, Ni_, d_, illum_;
+	RGB Ka_, Kd_, Ks_, Ke_;
+
+	MaterialData(std::string name, std::string map_Kd,
+	float Ns, float Ni, float d, float illum,
+	RGB Ka, RGB Kd, RGB Ks, RGB Ke)
+        : name_(name), map_Kd_(map_Kd), Ns_(Ns), Ni_(Ni), d_(d), illum_(illum), Ka_(Ka), Kd_(Kd), Ks_(Ks), Ke_(Ke) {}
+
+	void print(){
+		std::cout << name_ << " | " <<  Ns_ << " | " <<  Ka_.rgb.R << " | " << Ka_.rgb.G << " | " << Ka_.rgb.B << " | " 
+				  <<  Kd_.rgb.R << " | " << Kd_.rgb.G << " | " << Kd_.rgb.B << " | " <<  Ks_.rgb.R << " | " << 
+				  Ks_.rgb.G << " | " << Ks_.rgb.B << " | " <<  Ke_.rgb.R << " | " << Ke_.rgb.G << " | " << 
+				  Ke_.rgb.B << " | " <<  Ni_ << " | " <<  d_ << " | " <<  illum_ << " | " <<  map_Kd_ << std::endl;
+	}
+};
+
 struct ObjectFile
 {
     std::vector<Point3D> vertexList;
-    std::vector<std::vector<int>> faceList;
-    std::vector<Point3D> textureCoords;
+    std::vector<FaceIDs> faceList;
+   	std::vector<std::pair<float,float>> textureCoords;
     std::vector<Point3D> normalCoords;
+	std::vector<MaterialData> materialVector;
 };
+
+
 
 #endif
