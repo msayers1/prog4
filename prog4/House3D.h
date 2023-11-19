@@ -28,6 +28,7 @@ namespace graphics3d
             void initMeshAndNormals_(ObjectFile mesh);
 
 			std::vector<FaceLiteral> faceList_;
+			std::vector<MaterialData> materialData_;
 			
 		public:
 		

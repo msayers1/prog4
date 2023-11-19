@@ -46,18 +46,22 @@ void House3D::draw() const
 void House3D::initMeshAndNormals_(ObjectFile mesh)
 {
 	FaceLiteral face;
+	
 	for (const auto& entry : mesh.faceList) {
 		for(int i = 0; i < entry.vertexList.size(); i++){
-			Point3D vertex = mesh.vertexList[entry.vertexList[i]];
-			face.vertexList.push_back(vertex);
-			// std::cout << vertex.point3D.X << ',' <<   vertex.point3D.Y << ',' << vertex.point3D.Z << ',' << "\n";
-			std::pair<float,float> textureCoord = mesh.textureCoords[entry.textureList[i]];
-			face.textureList.push_back(textureCoord);
-			// std::cout <<  "    " <<   textureCoord.first << ',' <<   textureCoord.second <<  "\n";
-			Point3D normal = mesh.normalCoords[entry.normalList[i]];
-			face.normalList.push_back(normal);
-			// std::cout <<  "    " << "    " << normal.point3D.X << ',' <<   normal.point3D.Y << ',' << normal.point3D.Z << ',' << "\n";
-		}
+			if(entry.vertexList[i] != -1){
+				Point3D vertex = mesh.vertexList[(entry.vertexList[i]-1)];
+				std::cout << vertex.point3D.X << ',' <<   vertex.point3D.Y << ',' << vertex.point3D.Z << ',' << "\n";
+			}
+			if(entry.textureList[i] != -1){
+				std::pair<float,float> textureCoord = mesh.textureCoords[(entry.textureList[i]-1)];
+				std::cout <<  "    " <<   textureCoord.first << ',' <<   textureCoord.second <<  "\n";
+			}
+			if(entry.normalList[i] != -1){
+				Point3D normal = mesh.normalCoords[(entry.normalList[i]-1)];
+				std::cout <<  "    " << "    " << normal.point3D.X << ',' <<   normal.point3D.Y << ',' << normal.point3D.Z << ',' << "\n";
+			}
+        }
 	}
 	// for (const auto& entry : mesh.faceList) {
     //     // std::cout << "These are the vertices for a face" << "'\n";
