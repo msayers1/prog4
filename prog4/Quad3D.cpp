@@ -8,7 +8,7 @@
 #include "drawingUtilities.h"
 #include "Quad3D.h"
 
-using namespace graphics3d;
+// using namespace graphics3d;
 
 Quad3D::Quad3D(float width, float height, const Pose& pose, const Motion& motion)
 	:	GraphicObject3D(pose, motion),

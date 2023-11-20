@@ -11,8 +11,8 @@
 #include <memory>
 #include "GraphicObject3D.h"
 
-namespace graphics3d
-{
+// namespace graphics3d
+// {
 	/**	I define my cylinders as elliptic rings (radiusX, radiusZY)
 	 *	stacked along the local Z axis.
 	 *	I also define a static "unit" cylinder that can be used
@@ -89,6 +89,6 @@ namespace graphics3d
 //			void displaceVertex(unsigned int row, unsigned int col, float dZ);
 
 	};
-}
+// }
 
 #endif //	CYLINDER_3D_H

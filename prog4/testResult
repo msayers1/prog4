@@ -1,0 +1,606 @@
+129 in House3D.cpp:3 | -1 | -1 | 1
+129 in House3D.cpp:2 | -1 | 1 | 1
+129 in House3D.cpp:6 | -1 | 1 | -1
+129 in House3D.cpp:7 | -1 | -1 | -1
+146 in House3D.cpp: | -1 | -1 | 1
+146 in House3D.cpp: | -1 | 1 | 1
+146 in House3D.cpp: | -1 | 1 | -1
+146 in House3D.cpp: | -1 | -1 | -1
+129 in House3D.cpp:4 | 1 | -1 | 1
+129 in House3D.cpp:8 | 1 | -1 | -1
+129 in House3D.cpp:9 | 1 | 1 | -1
+129 in House3D.cpp:5 | 1 | 1 | 1
+146 in House3D.cpp: | 1 | -1 | 1
+146 in House3D.cpp: | 1 | -1 | -1
+146 in House3D.cpp: | 1 | 1 | -1
+146 in House3D.cpp: | 1 | 1 | 1
+129 in House3D.cpp:3 | -1 | -1 | 1
+129 in House3D.cpp:7 | -1 | -1 | -1
+129 in House3D.cpp:10 | -0.8 | -1 | -0.7
+129 in House3D.cpp:11 | -0.8 | -1 | -0.25
+146 in House3D.cpp: | -1 | -1 | 1
+146 in House3D.cpp: | -1 | -1 | -1
+146 in House3D.cpp: | -0.8 | -1 | -0.7
+146 in House3D.cpp: | -0.8 | -1 | -0.25
+129 in House3D.cpp:7 | -1 | -1 | -1
+129 in House3D.cpp:12 | -0.2 | -1 | -1
+129 in House3D.cpp:13 | -0.4 | -1 | -0.7
+129 in House3D.cpp:10 | -0.8 | -1 | -0.7
+146 in House3D.cpp: | -1 | -1 | -1
+146 in House3D.cpp: | -0.2 | -1 | -1
+146 in House3D.cpp: | -0.4 | -1 | -0.7
+146 in House3D.cpp: | -0.8 | -1 | -0.7
+129 in House3D.cpp:14 | -0.4 | -1 | -0.25
+129 in House3D.cpp:13 | -0.4 | -1 | -0.7
+129 in House3D.cpp:12 | -0.2 | -1 | -1
+129 in House3D.cpp:15 | -0.2 | -1 | -0.2
+146 in House3D.cpp: | -0.4 | -1 | -0.25
+146 in House3D.cpp: | -0.4 | -1 | -0.7
+146 in House3D.cpp: | -0.2 | -1 | -1
+146 in House3D.cpp: | -0.2 | -1 | -0.2
+129 in House3D.cpp:14 | -0.4 | -1 | -0.25
+129 in House3D.cpp:15 | -0.2 | -1 | -0.2
+129 in House3D.cpp:3 | -1 | -1 | 1
+146 in House3D.cpp: | -0.4 | -1 | -0.25
+146 in House3D.cpp: | -0.2 | -1 | -0.2
+146 in House3D.cpp: | -1 | -1 | 1
+129 in House3D.cpp:11 | -0.8 | -1 | -0.25
+129 in House3D.cpp:14 | -0.4 | -1 | -0.25
+129 in House3D.cpp:3 | -1 | -1 | 1
+146 in House3D.cpp: | -0.8 | -1 | -0.25
+146 in House3D.cpp: | -0.4 | -1 | -0.25
+146 in House3D.cpp: | -1 | -1 | 1
+129 in House3D.cpp:8 | 1 | -1 | -1
+129 in House3D.cpp:4 | 1 | -1 | 1
+129 in House3D.cpp:16 | 0.2 | -1 | -0.2
+129 in House3D.cpp:17 | 0.2 | -1 | -1
+146 in House3D.cpp: | 1 | -1 | -1
+146 in House3D.cpp: | 1 | -1 | 1
+146 in House3D.cpp: | 0.2 | -1 | -0.2
+146 in House3D.cpp: | 0.2 | -1 | -1
+129 in House3D.cpp:4 | 1 | -1 | 1
+129 in House3D.cpp:3 | -1 | -1 | 1
+129 in House3D.cpp:15 | -0.2 | -1 | -0.2
+129 in House3D.cpp:16 | 0.2 | -1 | -0.2
+146 in House3D.cpp: | 1 | -1 | 1
+146 in House3D.cpp: | -1 | -1 | 1
+146 in House3D.cpp: | -0.2 | -1 | -0.2
+146 in House3D.cpp: | 0.2 | -1 | -0.2
+129 in House3D.cpp:2 | -1 | 1 | 1
+129 in House3D.cpp:5 | 1 | 1 | 1
+129 in House3D.cpp:9 | 1 | 1 | -1
+129 in House3D.cpp:6 | -1 | 1 | -1
+146 in House3D.cpp: | -1 | 1 | 1
+146 in House3D.cpp: | 1 | 1 | 1
+146 in House3D.cpp: | 1 | 1 | -1
+146 in House3D.cpp: | -1 | 1 | -1
+129 in House3D.cpp:7 | -1 | -1 | -1
+129 in House3D.cpp:6 | -1 | 1 | -1
+129 in House3D.cpp:9 | 1 | 1 | -1
+129 in House3D.cpp:8 | 1 | -1 | -1
+146 in House3D.cpp: | -1 | -1 | -1
+146 in House3D.cpp: | -1 | 1 | -1
+146 in House3D.cpp: | 1 | 1 | -1
+146 in House3D.cpp: | 1 | -1 | -1
+129 in House3D.cpp:0 | 0 | -1 | 1.5
+129 in House3D.cpp:1 | 0 | 1 | 1.5
+129 in House3D.cpp:2 | -1 | 1 | 1
+129 in House3D.cpp:3 | -1 | -1 | 1
+146 in House3D.cpp: | 0 | -1 | 1.5
+146 in House3D.cpp: | 0 | 1 | 1.5
+146 in House3D.cpp: | -1 | 1 | 1
+146 in House3D.cpp: | -1 | -1 | 1
+129 in House3D.cpp:3 | -1 | -1 | 1
+129 in House3D.cpp:4 | 1 | -1 | 1
+129 in House3D.cpp:0 | 0 | -1 | 1.5
+146 in House3D.cpp: | -1 | -1 | 1
+146 in House3D.cpp: | 1 | -1 | 1
+146 in House3D.cpp: | 0 | -1 | 1.5
+129 in House3D.cpp:5 | 1 | 1 | 1
+129 in House3D.cpp:2 | -1 | 1 | 1
+129 in House3D.cpp:1 | 0 | 1 | 1.5
+146 in House3D.cpp: | 1 | 1 | 1
+146 in House3D.cpp: | -1 | 1 | 1
+146 in House3D.cpp: | 0 | 1 | 1.5
+129 in House3D.cpp:4 | 1 | -1 | 1
+129 in House3D.cpp:5 | 1 | 1 | 1
+129 in House3D.cpp:1 | 0 | 1 | 1.5
+129 in House3D.cpp:0 | 0 | -1 | 1.5
+146 in House3D.cpp: | 1 | -1 | 1
+146 in House3D.cpp: | 1 | 1 | 1
+146 in House3D.cpp: | 0 | 1 | 1.5
+146 in House3D.cpp: | 0 | -1 | 1.5
+regular keyx
+gTz = -2
+regular keyx
+gTz = -3
+regular keyx
+gTz = -4
+regular keya
+gTx = 1
+regular keya
+gTx = 2
+regular keyd
+gTx = 1
+regular keyf
+regular keyd
+gTx = 0
+regular keyd
+gTx = -1
+regular keyd
+gTx = -2
+special key100
+gYaw = 0
+special key100
+gYaw = -5
+special key100
+gYaw = -10
+special key100
+gYaw = -15
+special key100
+gYaw = -20
+special key100
+gYaw = -25
+special key100
+gYaw = -30
+special key100
+gYaw = -35
+special key100
+gYaw = -40
+special key100
+gYaw = -45
+special key100
+gYaw = -50
+special key100
+gYaw = -55
+special key100
+gYaw = -60
+special key100
+gYaw = -65
+special key100
+gYaw = -70
+special key100
+gYaw = -75
+special key101
+gPitch = -55
+special key102
+gYaw = -70
+special key102
+gYaw = -65
+special key102
+gYaw = -60
+special key102
+gYaw = -55
+special key102
+gYaw = -50
+special key102
+gYaw = -45
+special key102
+gYaw = -40
+special key102
+gYaw = -35
+special key102
+gYaw = -30
+special key102
+gYaw = -25
+special key102
+gYaw = -20
+special key102
+gYaw = -15
+special key102
+gYaw = -10
+special key102
+gYaw = -5
+special key102
+gYaw = 0
+special key102
+gYaw = 5
+special key102
+gYaw = 10
+special key103
+gPitch = -60
+special key103
+gPitch = -65
+special key103
+gPitch = -70
+special key103
+gPitch = -75
+special key103
+gPitch = -80
+special key103
+gPitch = -85
+special key103
+gPitch = -90
+special key103
+gPitch = -95
+special key102
+gYaw = 15
+special key100
+gYaw = 10
+special key103
+gPitch = -100
+special key100
+gYaw = 5
+special key100
+gYaw = 0
+special key100
+gYaw = -5
+special key100
+gYaw = -10
+special key100
+gYaw = -15
+special key100
+gYaw = -20
+special key100
+gYaw = -25
+special key100
+gYaw = -30
+special key100
+gYaw = -35
+special key100
+gYaw = -40
+special key100
+gYaw = -45
+special key100
+gYaw = -50
+special key100
+gYaw = -55
+special key100
+gYaw = -60
+special key100
+gYaw = -65
+special key100
+gYaw = -70
+special key102
+gYaw = -65
+special key102
+gYaw = -60
+special key102
+gYaw = -55
+special key102
+gYaw = -50
+special key102
+gYaw = -45
+special key102
+gYaw = -40
+special key102
+gYaw = -35
+special key102
+gYaw = -30
+special key102
+gYaw = -25
+special key102
+gYaw = -20
+special key102
+gYaw = -15
+special key102
+gYaw = -10
+special key102
+gYaw = -5
+special key102
+gYaw = 0
+special key102
+gYaw = 5
+special key102
+gYaw = 10
+special key102
+gYaw = 15
+special key102
+gYaw = 20
+special key102
+gYaw = 25
+special key102
+gYaw = 30
+special key102
+gYaw = 35
+special key102
+gYaw = 40
+special key102
+gYaw = 45
+special key102
+gYaw = 50
+special key102
+gYaw = 55
+special key102
+gYaw = 60
+special key102
+gYaw = 65
+special key103
+gPitch = -105
+special key103
+gPitch = -110
+special key100
+gYaw = 60
+special key101
+gPitch = -105
+special key101
+gPitch = -100
+special key101
+gPitch = -95
+special key101
+gPitch = -90
+special key101
+gPitch = -85
+special key101
+gPitch = -80
+special key101
+gPitch = -75
+special key101
+gPitch = -70
+special key101
+gPitch = -65
+special key100
+gYaw = 55
+special key102
+gYaw = 60
+special key100
+gYaw = 55
+special key100
+gYaw = 50
+special key100
+gYaw = 45
+special key100
+gYaw = 40
+special key100
+gYaw = 35
+special key100
+gYaw = 30
+special key100
+gYaw = 25
+special key100
+gYaw = 20
+special key100
+gYaw = 15
+special key100
+gYaw = 10
+special key100
+gYaw = 5
+special key102
+gYaw = 10
+special key100
+gYaw = 5
+special key112
+regular keyd
+gTx = -3
+regular keya
+gTx = -2
+regular keya
+gTx = -1
+regular keya
+gTx = 0
+regular key8
+gPitch = -60
+regular key8
+gPitch = -55
+regular key2
+gPitch = -60
+regular key2
+gPitch = -65
+regular key2
+gPitch = -70
+regular key2
+gPitch = -75
+regular key2
+gPitch = -80
+regular key4
+gYaw = 10
+regular key6
+gYaw = 5
+regular key6
+gYaw = 0
+regular key6
+gYaw = -5
+regular key8
+gPitch = -75
+regular key2
+gPitch = -80
+regular key2
+gPitch = -85
+regular key2
+gPitch = -90
+regular key4
+gYaw = 0
+regular key4
+gYaw = 5
+regular key4
+gYaw = 10
+regular key4
+gYaw = 15
+regular key4
+gYaw = 20
+regular key4
+gYaw = 25
+regular key4
+gYaw = 30
+regular key4
+gYaw = 35
+regular key4
+gYaw = 40
+regular key4
+gYaw = 45
+regular key4
+gYaw = 50
+regular key4
+gYaw = 55
+regular key4
+gYaw = 60
+regular key4
+gYaw = 65
+regular key4
+gYaw = 70
+regular key4
+gYaw = 75
+regular key4
+gYaw = 80
+regular key6
+gYaw = 75
+regular key4
+gYaw = 80
+regular key4
+gYaw = 85
+regular key4
+gYaw = 90
+regular key4
+gYaw = 95
+regular key4
+gYaw = 100
+regular key4
+gYaw = 105
+regular key4
+gYaw = 110
+regular key4
+gYaw = 115
+regular key4
+gYaw = 120
+regular key4
+gYaw = 125
+regular key4
+gYaw = 130
+regular key4
+gYaw = 135
+regular key4
+gYaw = 140
+regular key4
+gYaw = 145
+regular key4
+gYaw = 150
+regular key4
+gYaw = 155
+regular key4
+gYaw = 160
+regular key4
+gYaw = 165
+regular key4
+gYaw = 170
+regular key4
+gYaw = 175
+regular key4
+gYaw = 180
+regular key4
+gYaw = 185
+regular key4
+gYaw = 190
+regular key4
+gYaw = 195
+regular key4
+gYaw = 200
+regular key4
+gYaw = 205
+regular key4
+gYaw = 210
+regular key4
+gYaw = 215
+regular key4
+gYaw = 220
+regular key4
+gYaw = 225
+regular key4
+gYaw = 230
+regular key4
+gYaw = 235
+regular key4
+gYaw = 240
+regular key4
+gYaw = 245
+regular key4
+gYaw = 250
+regular key4
+gYaw = 255
+regular key4
+gYaw = 260
+regular key4
+gYaw = 265
+regular key4
+gYaw = 270
+regular key4
+gYaw = 275
+regular key4
+gYaw = 280
+regular key4
+gYaw = 285
+regular key4
+gYaw = 290
+regular key4
+gYaw = 295
+regular key3
+gTy = -1
+regular key7
+gTy = 0
+regular key1
+gRoll = 0
+regular key9
+gRoll = 5
+regular keyx
+gTz = -5
+regular keyx
+gTz = -6
+regular key6
+gYaw = 290
+regular key6
+gYaw = 285
+regular key8
+gPitch = -85
+regular key7
+gTy = 1
+regular key7
+gTy = 2
+regular key9
+gRoll = 10
+regular key3
+gTy = 1
+regular key3
+gTy = 0
+regular key1
+gRoll = 5
+regular key1
+gRoll = 0
+regular key1
+gRoll = -5
+special key100
+gYaw = 280
+special key102
+gYaw = 285
+special key102
+gYaw = 290
+special key102
+gYaw = 295
+special key102
+gYaw = 300
+special key102
+gYaw = 305
+special key102
+gYaw = 310
+special key102
+gYaw = 315
+special key102
+gYaw = 320
+special key102
+gYaw = 325
+special key102
+gYaw = 330
+special key102
+gYaw = 335
+special key102
+gYaw = 340
+special key102
+gYaw = 345
+special key102
+gYaw = 350
+special key102
+gYaw = 355
+special key102
+gYaw = 360
+special key102
+gYaw = 365
+special key102
+gYaw = 370
+special key100
+gYaw = 365
+special key100
+gYaw = 360
+special key100
+gYaw = 355
+special key100
+gYaw = 350
+special key100
+gYaw = 345

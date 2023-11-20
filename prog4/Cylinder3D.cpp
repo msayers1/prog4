@@ -10,7 +10,7 @@
 
 
 using namespace std;
-using namespace graphics3d;
+// using namespace graphics3d;
 
 
 const shared_ptr<Cylinder3D> UNIT_CYLINDER_OPEN = make_shared<Cylinder3D>(
@@ -76,6 +76,8 @@ Cylinder3D::~Cylinder3D()
 
 void Cylinder3D::draw() const
 {
+	// std::cout << "79 Cylinder3d.cpp:" << std::endl; 
+	
 	glPushMatrix();
 	applyPose();
 

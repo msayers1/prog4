@@ -12,8 +12,8 @@
 #include "common.h"
 #include "drawingUtilities.h"
 
-namespace graphics3d
-{
+// namespace graphics3d
+// {
 	class GraphicObject3D
 	{
 		private:
@@ -37,7 +37,8 @@ namespace graphics3d
 
 			virtual void draw() const = 0;
 			virtual void update(float dt);
-			
+
+			void setMaterial(const MaterialData& material);			
 			void setMaterial(const Material& material);
 			
 			const Material& getMaterial() const;
@@ -81,6 +82,6 @@ namespace graphics3d
 	};
 
 
-}
+// }
 
 #endif //	GRAPHIC_OBJECT_3D_H

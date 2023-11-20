@@ -9,10 +9,15 @@
 #define HOUSE_3D_H
 
 #include <memory>
+#include <string>
+#include <vector>
+#include <map>
+// #include "common.h"
+// #include "filemanagement.h"
 #include "GraphicObject3D.h"
 
-namespace graphics3d
-{
+// namespace graphics3d
+// {
 	/**	I define my cylinders as elliptic rings (radiusX, radiusZY)
 	 *	stacked along the local Z axis.
 	 *	I also define a static "unit" cylinder that can be used
@@ -22,17 +27,20 @@ namespace graphics3d
 	{
 		private:
 		
-			float width_;
-            float height_;
+			float scaleX_, scaleY_, scaleZ_;
 			
-            void initMeshAndNormals_(ObjectFile mesh);
+            void initHouseMeshAndNormals_(ObjectFile mesh);
 
-			std::vector<FaceLiteral> faceList_;
-			std::vector<MaterialData> materialData_;
+			std::vector<GroupLiteral> groupList_;
+			// GLuint texture_;
+			// std::map<std::string, MaterialData>* materialData_;
 			
 		public:
 		
-			House3D(std::string filename, float width, float height,
+			House3D(std::string filename, std::string directory, float scaleX, float scaleY, float scaleZ,
+						const Pose& pose, const Motion& motion = Motion::NULL_MOTION);
+
+			House3D(std::string filename, float scaleX, float scaleY, float scaleZ,
 						const Pose& pose, const Motion& motion = Motion::NULL_MOTION);
 
 			~House3D();
@@ -45,16 +53,20 @@ namespace graphics3d
 
 			void draw() const;
 			
-			inline float getWidth()
+			inline float getScaleX()
 			{
-				return width_;
+				return scaleX_;
 			}
-			inline float getHeight()
+			inline float getScalY()
 			{
-				return height_;
+				return scaleY_;
+			}
+			inline float getScaleZ()
+			{
+				return scaleZ_;
 			}
 				
 	};
-}
+// }
 
 #endif //	HOUSE_3D_H

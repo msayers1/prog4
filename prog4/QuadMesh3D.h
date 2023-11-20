@@ -11,8 +11,8 @@
 #include <memory>
 #include "GraphicObject3D.h"
 
-namespace graphics3d
-{
+// namespace graphics3d
+// {
 	/**	A Quad3D has weight and height dimensions in a plane perpendicular
 	 *	to the Z axis.
 	 */
@@ -60,6 +60,6 @@ namespace graphics3d
 			void faceNormal(GLfloat* v1, GLfloat* v2, GLfloat* v3, GLfloat* v4,
 							float normal[]) const;
 	};
-}
+// }
 
 #endif //	QUAD_MESH_3D_H

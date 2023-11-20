@@ -6,7 +6,7 @@
 //
 
 #include "drawingUtilities.h"
-
+// using namespace graphics3d;
 extern bool drawReferenceFrames;
 
 
@@ -26,19 +26,29 @@ void setCurrentMaterial(GLfloat ambRed, GLfloat ambGreen, GLfloat ambBlue, GLflo
 	glMaterialf(GL_FRONT, GL_SHININESS, shine * 128.f);
 }
 
-void setCurrentMaterial(RGB ambientRGB, RGB diffuseRGB, RGB specularRGB, RGB emissionRGB, GLfloat shiny, 
-	GLfloat illum, GLfloat opaqueness, GLfloat opticalDensity)
+void setCurrentMaterial(MaterialData material)
 {
+	RGB ambientRGB = material.Ka_;
+	RGB diffuseRGB = material.Kd_;
+	RGB specularRGB = material.Ks_;
+	RGB emissionRGB = material.Ke_;
+	GLfloat shiny = material.Ns_; 
+	GLfloat illum = material.illum_;
+	GLfloat opaqueness = material.d_;
+	GLfloat opticalDensity = material.Ni_;
 	//Leaving illum and optical Density if needed later. 
 	GLfloat ambient[4] = {ambientRGB.rgb.R, ambientRGB.rgb.G, ambientRGB.rgb.B, opaqueness};
 	GLfloat diffuse[4] = {diffuseRGB.rgb.R, diffuseRGB.rgb.G, diffuseRGB.rgb.B, opaqueness};
 	GLfloat specular[4] = {specularRGB.rgb.R, specularRGB.rgb.G, specularRGB.rgb.B, opaqueness};
 	GLfloat emission[4] = {emissionRGB.rgb.R, emissionRGB.rgb.G, emissionRGB.rgb.B, opaqueness};
 	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
-	glMaterialfv(GL_FRONT, GL_EMISSION, emission);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse+4);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specular+8);
+	glMaterialfv(GL_FRONT, GL_EMISSION, emission+12);
 	glMaterialf(GL_FRONT, GL_SHININESS, shiny * 128.f);
+	if(material.texture_ != 0){
+		glBindTexture(GL_TEXTURE_2D, material.texture_);
+	}
 }
 
 void setCurrentMaterial(const Material& mat)

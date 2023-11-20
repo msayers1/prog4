@@ -11,14 +11,16 @@
 #include <vector>
 #include <memory>
 #include <iostream>
-#include "drawingUtilities.h"
+#include "filemanagement.h"
 #include "common.h"
+#include "drawingUtilities.h"
 #include "Quad3D.h"
 #include "QuadMesh3D.h"
 #include "Cylinder3D.h"
+#include "House3D.h"
 
 using namespace std;
-using namespace graphics3d;
+// using namespace graphics3d;
 
 void drawOrbit(void);
 void cameraToWorld(void);
@@ -27,23 +29,36 @@ void myDisplayFunc(void);
 void myResizeFunc(int w, int h);
 void myMouseFunc(int b, int s, int x, int y);
 void myKeyboardFunc(unsigned char c, int x, int y);
+void mySpecialKeyHandler(int key, int x, int y);
 void myTimerFunc(int dt);
 void myInit(void);
 
 
 //	Camera intrinsic parameters
+// float		gFoV = 45.f,			//	vertical field of view in degree
+// 			gNearZ = 1.0f,			//	Position of the clipping planes along the camera's
+// 			gFarZ = 50.0f;			//		optical axis (Z axis)
 float		gFoV = 45.f,			//	vertical field of view in degree
 			gNearZ = 1.0f,			//	Position of the clipping planes along the camera's
 			gFarZ = 50.0f;			//		optical axis (Z axis)
 			
+
 //	Camera to world transformation (extrinsic parameters)
-float		gTx = 0.25f,
-			gTy = -0.2f,
-			gTz = -2.f,
-			gRoll = 0.0f,
-			gPitch =-60.f,
-			gYaw = 10.f;
-						
+// float		gTx = 0.25f,
+// 			gTy = -0.2f,
+// 			gTz = -2.f,
+// 			gRoll = 0.0f,
+// 			gPitch =-60.f,
+// 			gYaw = 10.f;
+float		gTx = 0.0f,
+			gTy = 0.f,
+			gTz = -1.f,
+			gRoll = -5.0f,
+			gPitch =-85.f,
+			gYaw = -15.f;
+
+
+
 RenderingMode renderingMode = RenderingMode::SmoothShadingRender;
 
 bool		drawReferenceFrames = false;
@@ -65,7 +80,7 @@ Material gray2{0.3f, 0.3f, 0.3f, 1.f, 0.3f, 0.3f, 0.3f, 1.f, 0.3f, 0.3f, 0.3f, 1
 				0.2f, 0.2f, 0.2f, 1.f, 0.3f};
 				
 Material red1{0.9f, 0.1f, 0.1f, 1.f, 0.9f, 0.1f, 0.1f, 1.f, 0.9f, 0.1f, 0.1f, 1.f,
-				0.9f, 0.1f, 0.1f, 1.f, 0.3f};
+				0.2f, 0.1f, 0.1f, 1.f, 0.3f};
 Material specRed1{0.9f, 0.1f, 0.1f, 1.f, 0.4f, 0.05f, 0.05f, 1.f, 0.9f, 0.2f, 0.2f, 1.f,
 				0.2f, 0.0f, 0.0f, 1.f, 0.6f};
 vector<shared_ptr<GraphicObject3D> > objList;
@@ -98,7 +113,7 @@ void myDisplayFunc(void)
 
 	//	Now I am in the world reference frame.
 	//	I draw axes so that we can see what the local frame looks like.
-//	if (drawReferenceFrames)
+	if (drawReferenceFrames)
 		drawReferenceFrame();
 	
 	for (auto obj : objList)
@@ -160,8 +175,10 @@ void myMouseFunc(int b, int s, int x, int y)
 //
 void myKeyboardFunc(unsigned char c, int x, int y)
 {
+	std::cout << "regular key" <<  c << std::endl;
 	switch (c)
 	{
+		case 'q':
 		case 27:
 			exit(0);
 			break;
@@ -173,7 +190,7 @@ void myKeyboardFunc(unsigned char c, int x, int y)
 			break;
 			
 		//	Toggles on/off wireframe mode
-		case 'w':
+		// case 'w':
 		case 'W':
 			switch(renderingMode)
 			{
@@ -234,8 +251,57 @@ void myKeyboardFunc(unsigned char c, int x, int y)
 			glutPostRedisplay();
 			break;
 	
-
+		case '8':
+			gPitch += 5.f;
+			cout << "gPitch = " << gPitch << endl;
+			break;
+		case '2':
+			gPitch -= 5.f;
+			cout << "gPitch = " << gPitch << endl;
+			break;
+		case '4':
+			gYaw += 5.f;
+			cout << "gYaw = " << gYaw << endl;
+			break;
+		case '6':
+			gYaw -= 5.f;
+			cout << "gYaw = " << gYaw << endl;
+			break; 
+		case '7':
+			gTy += 1.f;
+			cout << "gTy = " << gTy << endl;
+			break;
+		case '3':
+			gTy -= 1.f;
+			cout << "gTy = " << gTy << endl;
+			break;
+		case '9':
+			gRoll += 5.f;
+			cout << "gRoll = " << gRoll << endl;
+			break;
+		case '1':
+			gRoll -= 5.f;
+			cout << "gRoll = " << gRoll << endl;
+			break;	
+		case 'w':
+			gTz += 1.f;
+			cout << "gTz = " << gTz << endl;
+			break;
+		case 'x':
+			gTz -= 1.f;
+			cout << "gTz = " << gTz << endl;
+			break;
+		case 'a':
+			gTx += 1.f;
+			cout << "gTx = " << gTx << endl;
+			break;
+		case 'd':
+			gTx -= 1.f;
+			cout << "gTx = " << gTx << endl;
+			break; 
 			
+			
+
 		case 'y':
 		case 'Y':
 			gNearZ *= 0.9f;
@@ -254,18 +320,43 @@ void myKeyboardFunc(unsigned char c, int x, int y)
 		case 'U':
 			gFarZ *= 0.9f;
 			setupCamera();
-			cout << "nearZ = " << gFarZ << endl;
+			cout << "farZ = " << gFarZ << endl;
 			break;
 
 		case 'j':
 		case 'J':
 			gFarZ *= 1.1f;
 			setupCamera();
-			cout << "nearZ = " << gFarZ << endl;
+			cout << "farZ = " << gFarZ << endl;
 			break;
 			
 		default:
 			break;
+	}
+}
+
+
+void mySpecialKeyHandler(int key, int x, int y)
+{
+	std::cout << "special key" <<  key << std::endl;
+	//Use the arrow keys to control the camera pitch is up/down and yaw is left/right.
+	switch(key){
+		case GLUT_KEY_UP:
+			gPitch += 5.f;
+			cout << "gPitch = " << gPitch << endl;
+			break;
+		case GLUT_KEY_DOWN:
+			gPitch -= 5.f;
+			cout << "gPitch = " << gPitch << endl;
+			break;
+		case GLUT_KEY_LEFT:
+			gYaw -= 5.f;
+			cout << "gYaw = " << gYaw << endl;
+			break;
+		case GLUT_KEY_RIGHT:
+			gYaw += 5.f;
+			cout << "gYaw = " << gYaw << endl;
+			break; 
 	}
 }
 
@@ -286,7 +377,7 @@ void myInit(void)
 {
 	GLfloat		ambientLight[] = {0.5, 0.5, 0.5, 1.0};
 	GLfloat		diffuseLight[] = {1.0, 1.0, 1.0, 1.0};
-	GLfloat		positionLight[] = {0.0, 3.0, 3.0, 0.0};
+	GLfloat		positionLight[] = {0.0, -3.0, 3.0, 0.0};
 
 	GLfloat		lmodel_ambientLight[] = {0.2, 0.2, 0.2, 1.0};
 	GLfloat		local_view[] = {0.0};
@@ -311,11 +402,17 @@ void myInit(void)
 	setupCamera();
 	
 	//	create a quad object
-//	objList.push_back(make_shared<Quad3D>(1.f, 1.5f, Pose{-1.f, 0.f, 0.f, 15.f, 0.f, -15.f}));
-//	objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
-	objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, 0.10f, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
-//	objList.push_back(make_shared<Cylinder3D>(0.5f, 0.5f, 1.f, 12, 8, true, Pose{0.f, 2.f, -0.5f, 45.f, 45.f, 0.f}));
-	objList.back()->setMaterial(specRed1);
+	// objList.push_back(make_shared<Quad3D>(1.f, 1.5f, Pose{-1.f, 0.f, 0.f, 15.f, 0.f, -15.f}));
+	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
+	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, 0.10f, Pose{0.f, -0.f, 0.f, 0.f, 0.f, 0.f}));
+	// objList.push_back(make_shared<Cylinder3D>(0.5f, 0.5f, 1.f, 12, 8, true, Pose{0.f, 1.f, -1.0f, 0.f, 0.f, 0.f}));
+	objList.push_back(make_shared<House3D>("houseOutofBlenderWithTexture.obj", "../", 1.f, 1.f, 1.f, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
+	// objList.push_back(make_shared<House3D>("houseOutofBlender.obj", "../", .25f, .25f, .25f, Pose{0.f, 1.f, -1.f, 0.f, 0.f, 0.f}));
+	// std::map<std::string, MaterialData> material =  processMaterialDataFile("../test.mtl");
+
+	// for(auto& obj : objList){
+	// 	obj->setMaterial(gray2);
+	// }
 }
 
 void setupCamera(void)
@@ -346,6 +443,7 @@ int main(int argc, char** argv)
 	glutReshapeFunc(myResizeFunc);
 	glutMouseFunc(myMouseFunc);
 	glutKeyboardFunc(myKeyboardFunc);
+	glutSpecialFunc(mySpecialKeyHandler);
 	glutTimerFunc(10, myTimerFunc, 0);
 	
 	//	Now we can do application-level
