@@ -123,6 +123,7 @@ void House3D::initHouseMeshAndNormals_(ObjectFile mesh)
         faceList.clear();
 		group.name = entry.name;
 		group.material = mesh.materialMap[entry.material];
+		// Commented out since I moved it to the MaterialData Structure		
 		// if(group.material.map_Kd_ != ""){
 		// 	const char* textureFilename = ("../" + group.material.map_Kd_).c_str();;
 		// 	texture_= LoadTexture(textureFilename);
@@ -139,7 +140,7 @@ void House3D::initHouseMeshAndNormals_(ObjectFile mesh)
                 if(face.vertexList[j] != -1){
 					// std::cout << __LINE__ << " in " << __FILE__ << ":" << (face.vertexList[j]-1) << " | " << mesh.vertexList[(face.vertexList[j]-1)].point3D.X << " | " << mesh.vertexList[(face.vertexList[j]-1)].point3D.Y << " | " << mesh.vertexList[(face.vertexList[j]-1)].point3D.Z << std::endl; 
                     vertex = mesh.vertexList[(face.vertexList[j]-1)];
-                    std::cout << __LINE__ << " in " << __FILE__ << ":" << (face.vertexList[j]-1) << " | " << vertex.point3D.X << " | " << vertex.point3D.Y << " | " << vertex.point3D.Z << std::endl; 
+                    // std::cout << __LINE__ << " in " << __FILE__ << ":" << (face.vertexList[j]-1) << " | " << vertex.point3D.X << " | " << vertex.point3D.Y << " | " << vertex.point3D.Z << std::endl; 
                     faceLiteral.vertexList.push_back(vertex);
                     // message += "v " +  std::to_string(vertex.point3D.X) + ' ' +   std::to_string(vertex.point3D.Y) + ' ' + std::to_string(vertex.point3D.Z) + "\n";
                 }
@@ -155,9 +156,9 @@ void House3D::initHouseMeshAndNormals_(ObjectFile mesh)
                 }
                 
             }
-			for(const auto& g : faceLiteral.vertexList){
-				std::cout << __LINE__ << " in " << __FILE__ << ":" <<  " | " << g.point3D.X << " | " << g.point3D.Y << " | " << g.point3D.Z << std::endl; 
-			}
+			// for(const auto& g : faceLiteral.vertexList){
+			// 	std::cout << __LINE__ << " in " << __FILE__ << ":" <<  " | " << g.point3D.X << " | " << g.point3D.Y << " | " << g.point3D.Z << std::endl; 
+			// }
 
 			faceList.push_back(faceLiteral);
             // std::cout << "\n";

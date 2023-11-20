@@ -9,7 +9,7 @@
 #include <map>
 #include <string>
 #include "filemanagement.h"
-using namespace graphics3d;
+// using namespace graphics3d;
 // inline std::map<std::string, MaterialData> processMaterialDataFile(std::string filename);
 
 inline float returnValue(std::ifstream& inputFile, std::string& line){

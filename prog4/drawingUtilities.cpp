@@ -42,11 +42,12 @@ void setCurrentMaterial(MaterialData material)
 	GLfloat specular[4] = {specularRGB.rgb.R, specularRGB.rgb.G, specularRGB.rgb.B, opaqueness};
 	GLfloat emission[4] = {emissionRGB.rgb.R, emissionRGB.rgb.G, emissionRGB.rgb.B, opaqueness};
 	glMaterialfv(GL_FRONT, GL_AMBIENT, ambient);
-	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse+4);
-	glMaterialfv(GL_FRONT, GL_SPECULAR, specular+8);
-	glMaterialfv(GL_FRONT, GL_EMISSION, emission+12);
+	glMaterialfv(GL_FRONT, GL_DIFFUSE, diffuse);
+	glMaterialfv(GL_FRONT, GL_SPECULAR, specular);
+	glMaterialfv(GL_FRONT, GL_EMISSION, emission);
 	glMaterialf(GL_FRONT, GL_SHININESS, shiny * 128.f);
 	if(material.texture_ != 0){
+		// std::cout << "here" << std::endl;
 		glBindTexture(GL_TEXTURE_2D, material.texture_);
 	}
 }

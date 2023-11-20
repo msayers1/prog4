@@ -7,7 +7,7 @@
 
 #ifndef UTILITIES_H
 #define UTILITIES_H
-#pragma once
+
 #include "glPlatform.h"
 #include "common.h"
 #include "filemanagement.h"

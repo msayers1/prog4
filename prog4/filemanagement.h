@@ -30,52 +30,52 @@ union RGB
     RGB(GLfloat R, GLfloat G, GLfloat B):aRGB{R,G,B}{};
 };
 
-// inline GLuint LoadTexture( const char * filename )
-// {
-//   GLuint texture;
-//   int width, height;
-//   unsigned char * data;
+inline GLuint LoadTexture( const char * filename )
+{
+  GLuint texture;
+  int width, height;
+  unsigned char * data;
 
-//   FILE * file;
-//   file = fopen( filename, "rb" );
+  FILE * file;
+  file = fopen( filename, "rb" );
 
-//   if ( file == NULL ) return 0;
-//   width = 1024;
-//   height = 1024;
-//   data = (unsigned char *)malloc( width * height * 3 );
-//   //int size = fseek(file,);
-//   fread( data, width * height * 3, 1, file );
-//   fclose( file );
+  if ( file == NULL ) return 0;
+  width = 1024;
+  height = 1024;
+  data = (unsigned char *)malloc( width * height * 3 );
+  //int size = fseek(file,);
+  fread( data, width * height * 3, 1, file );
+  fclose( file );
 
-//   for(int i = 0; i < width * height ; ++i)
-//   {
-//     int index = i*3;
-//     unsigned char B,R;
-//     B = data[index];
-//     R = data[index+2];
+  for(int i = 0; i < width * height ; ++i)
+  {
+    int index = i*3;
+    unsigned char B,R;
+    B = data[index];
+    R = data[index+2];
 
-//     data[index] = R;
-//     data[index+2] = B;
-//   }
+    data[index] = R;
+    data[index+2] = B;
+  }
 
-//   glGenTextures( 1, &texture );
-//   glBindTexture( GL_TEXTURE_2D, texture );
-//   glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE,GL_DECAL); // Overwrites object color data
-//   // glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE,GL_MODULATE); // Modulates object color data
-//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST );
+  glGenTextures( 1, &texture );
+  glBindTexture( GL_TEXTURE_2D, texture );
+  glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE,GL_DECAL); // Overwrites object color data
+  // glTexEnvf( GL_TEXTURE_ENV, GL_TEXTURE_ENV_MODE,GL_MODULATE); // Modulates object color data
+  glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER,GL_LINEAR_MIPMAP_NEAREST );
 
-//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR );
-//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
-//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
-// //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_CLAMP_TO_BORDER);
-// //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_CLAMP_TO_BORDER);
-// //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_REPEAT );
-// //   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_REPEAT );
-//   gluBuild2DMipmaps( GL_TEXTURE_2D, 3, width, height,GL_RGB, GL_UNSIGNED_BYTE, data );
-//   free( data );
+  glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER,GL_LINEAR );
+  glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_CLAMP_TO_EDGE);
+  glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_CLAMP_TO_EDGE);
+//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_CLAMP_TO_BORDER);
+//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_CLAMP_TO_BORDER);
+//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_S,GL_REPEAT );
+//   glTexParameterf( GL_TEXTURE_2D, GL_TEXTURE_WRAP_T,GL_REPEAT );
+  gluBuild2DMipmaps( GL_TEXTURE_2D, 3, width, height,GL_RGB, GL_UNSIGNED_BYTE, data );
+  free( data );
 
-//   return texture;
-// }
+  return texture;
+}
 
 
 // Holds the Material Data
@@ -84,6 +84,7 @@ struct MaterialData
     std::string name_, map_Kd_;
     GLfloat Ns_, Ni_, d_, illum_;
     RGB Ka_, Kd_, Ks_, Ke_;
+    // Image for Texture
     GLuint texture_;
 
     MaterialData()
@@ -93,10 +94,12 @@ struct MaterialData
     GLfloat Ns, GLfloat Ni, GLfloat d, GLfloat illum,
     RGB Ka, RGB Kd, RGB Ks, RGB Ke)
         : name_(name), map_Kd_(map_Kd), Ns_(Ns), Ni_(Ni), d_(d), illum_(illum), Ka_(Ka), Kd_(Kd), Ks_(Ks), Ke_(Ke),texture_(0) {
-            // if(map_Kd_ != ""){
-            //     const char* textureFilename = ("../" + map_Kd_).c_str();
-            //     texture_= LoadTexture(textureFilename);
-            // }
+            if(map_Kd_ != ""){
+                const char* textureFilename = (map_Kd_).c_str();
+                //Calls function to grab the image. 
+                texture_= LoadTexture(textureFilename);
+                // std::cout << "here setting" << texture_  << " | " << textureFilename  << " | " << map_Kd_ << " | " << name_ << " | " << map_Kd << std::endl;
+            }
         }
 
     void print(){
@@ -251,10 +254,13 @@ inline std::map<std::string,MaterialData> processMaterialDataFile(std::string fi
                 Ni = returnValue(inputFile, line); 
                 d = returnValue(inputFile, line); 
                 illum = returnValue(inputFile, line); 
-                if (std::getline(inputFile, line)) {
-                    iss >> word;
-                    map_Kd = word;
-                }
+                map_Kd = returnString(inputFile, line);
+                // if (std::getline(inputFile, line)) {
+                    // std::getline(inputFile, line);
+                    // iss >> word;
+                    // map_Kd = word;
+                // std::cout << map_Kd << " | " << "Here" << std::endl;
+                // }
                 // std::cout << "Here" << name << " | " <<  Ns << " | " <<  Ka.rgb.R << " | " << Ka.rgb.G << " | " << Ka.rgb.B << " | " 
 				//   <<  Kd.rgb.R << " | " << Kd.rgb.G << " | " << Kd.rgb.B << " | " <<  Ks.rgb.R << " | " << 
 				//   Ks.rgb.G << " | " << Ks.rgb.B << " | " <<  Ke.rgb.R << " | " << Ke.rgb.G << " | " << 

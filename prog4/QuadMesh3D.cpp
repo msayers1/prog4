@@ -8,8 +8,9 @@
 #include <random>
 #include "QuadMesh3D.h"
 
-// using namespace graphics3d;
+
 using namespace std;
+// using namespace graphics3d;
 
 QuadMesh3D::QuadMesh3D(float width, float height, unsigned int numRows, unsigned int numCols,
 					   const Pose& pose, const Motion& motion)

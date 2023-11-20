@@ -11,9 +11,9 @@
 #include <vector>
 #include <memory>
 #include <iostream>
+#include "drawingUtilities.h"
 #include "filemanagement.h"
 #include "common.h"
-#include "drawingUtilities.h"
 #include "Quad3D.h"
 #include "QuadMesh3D.h"
 #include "Cylinder3D.h"
@@ -52,10 +52,10 @@ float		gFoV = 45.f,			//	vertical field of view in degree
 // 			gYaw = 10.f;
 float		gTx = 0.0f,
 			gTy = 0.f,
-			gTz = -1.f,
-			gRoll = -5.0f,
+			gTz = -5.f,
+			gRoll = 15.0f,
 			gPitch =-85.f,
-			gYaw = -15.f;
+			gYaw = 10.f;
 
 
 
@@ -375,12 +375,22 @@ void myTimerFunc(int dt)
 
 void myInit(void)
 {
-	GLfloat		ambientLight[] = {0.5, 0.5, 0.5, 1.0};
-	GLfloat		diffuseLight[] = {1.0, 1.0, 1.0, 1.0};
+	GLfloat		ambientLight[] = {0.5, 0.5, 0.5, 0.5};
+	GLfloat		diffuseLight[] = {1.0, 1.0, 1.0, 0.5};
 	GLfloat		positionLight[] = {0.0, -3.0, 3.0, 0.0};
 
-	GLfloat		lmodel_ambientLight[] = {0.2, 0.2, 0.2, 1.0};
+	GLfloat		lmodel_ambientLight[] = {0.2, 0.2, 0.2, 0.5};
 	GLfloat		local_view[] = {0.0};
+
+	// GLfloat		ambientLight[] = {0.5, 0.5, 0.5, 1.0};
+	// GLfloat		diffuseLight[] = {1.0, 1.0, 1.0, 1.0};
+	// GLfloat		positionLight[] = {0.0, -3.0, 3.0, 0.0};
+
+	// GLfloat		lmodel_ambientLight[] = {0.2, 0.2, 0.2, 1.0};
+	// GLfloat		local_view[] = {0.0};
+
+
+
 
 	glLightfv(GL_LIGHT0, GL_AMBIENT, ambientLight);
 	glLightfv(GL_LIGHT0, GL_DIFFUSE, diffuseLight);
@@ -406,7 +416,7 @@ void myInit(void)
 	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
 	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, 0.10f, Pose{0.f, -0.f, 0.f, 0.f, 0.f, 0.f}));
 	// objList.push_back(make_shared<Cylinder3D>(0.5f, 0.5f, 1.f, 12, 8, true, Pose{0.f, 1.f, -1.0f, 0.f, 0.f, 0.f}));
-	objList.push_back(make_shared<House3D>("houseOutofBlenderWithTexture.obj", "../", 1.f, 1.f, 1.f, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
+	objList.push_back(make_shared<House3D>("houseOutofBlenderWithTexture.obj", "./", 1.f, 1.f, 1.f, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
 	// objList.push_back(make_shared<House3D>("houseOutofBlender.obj", "../", .25f, .25f, .25f, Pose{0.f, 1.f, -1.f, 0.f, 0.f, 0.f}));
 	// std::map<std::string, MaterialData> material =  processMaterialDataFile("../test.mtl");
 

@@ -31,8 +31,10 @@
 			
             void initHouseMeshAndNormals_(ObjectFile mesh);
 
-			std::vector<GroupLiteral> groupList_;
+			std::vector<GroupLiteral> groupList_;		
+			// Commented out since I moved it to the MaterialData Structure
 			// GLuint texture_;
+			// Each Group will have its Material Data. 
 			// std::map<std::string, MaterialData>* materialData_;
 			
 		public:
@@ -67,6 +69,7 @@
 			}
 				
 	};
+
 // }
 
 #endif //	HOUSE_3D_H

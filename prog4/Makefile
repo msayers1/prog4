@@ -65,7 +65,7 @@ CPPFLAGS=-I. -lglut -lGLU -lGL -lstdc++ -lm -g
 #---------------------------------------------------------
 all: ${EXEC} # execute "make"
 #---------------------------------------------------------
-${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o
+${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o common.h filemanagement.h glPlatform.h
 	${CC} ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o ${CLASS5}.o ${CLASS6}.o -o ${EXEC} ${CPPFLAGS}
 #---------------------------------------------------------
 # ${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o ${CLASS7}.o common.h glPlatform.h

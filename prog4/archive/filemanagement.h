@@ -13,8 +13,8 @@
 #include <map>
 #include <string>
 #include "common.h"
-namespace graphics3d
-{
+// namespace graphics3d
+// {
     // struct MaterialData;
     // union RGB;
     // struct ObjectFile;
@@ -38,5 +38,5 @@ namespace graphics3d
 
     GLuint LoadTexture( const char * filename );
 
-}
+// }
 #endif //	FILE_MANAGEMENT_H
