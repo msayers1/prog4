@@ -49,7 +49,7 @@ void drawPoint(const FaceLiteral& face, int index){
 	// std::cout << "46:" << face.vertexList[index].aPoint3D[0] << ',' <<   face.vertexList[index].aPoint3D[1] << ',' << face.vertexList[index].aPoint3D[2] << ',' << "\n"; 
 	glVertex3fv(face.vertexList[index].aPoint3D);
 	glNormal3fv(face.normalList[index].aPoint3D);
-	glTexCoord2f(face.textureList[index].first, face.textureList[index].second);
+	// glTexCoord2f(face.textureList[index].first, face.textureList[index].second);
 }
 
 void drawTriangles(const FaceLiteral& face, int groupSize){

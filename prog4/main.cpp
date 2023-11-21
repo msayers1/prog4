@@ -435,15 +435,15 @@ void myInit(void)
 	// objList.push_back(make_shared<Quad3D>(1.f, 1.5f, Pose{-1.f, 0.f, 0.f, 15.f, 0.f, -15.f}));
 	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
 	// objList.push_back(make_shared<QuadMesh3D>(1.f, 1.5f, 6, 8, 0.10f, Pose{0.f, -0.f, 0.f, 0.f, 0.f, 0.f}));
-	objList.push_back(make_shared<Sphere3D>(0.5f, 0.5f, 0.5f, 16, 32, Pose{0.f, 1.f, -1.0f, 0.f, 0.f, 0.f}));
+	// objList.push_back(make_shared<Sphere3D>(0.5f, 0.5f, 0.5f, 16, 32, Pose{0.f, 1.f, -1.0f, 0.f, 0.f, 0.f}));
 	// objList.push_back(make_shared<Cylinder3D>(0.5f, 0.5f, 1.f, 12, 8, true, Pose{0.f, 1.f, -1.0f, 0.f, 0.f, 0.f}));
 	// objList.push_back(make_shared<House3D>("houseOutofBlenderWithTexture.obj", "./", 1.f, 1.f, 1.f, Pose{-0.25f, 0.2f, 0.f, -15.f, 0.f, 15.f}));
-	// objList.push_back(make_shared<House3D>("houseOutofBlender.obj", "../", .25f, .25f, .25f, Pose{0.f, 1.f, -1.f, 0.f, 0.f, 0.f}));
+	objList.push_back(make_shared<House3D>("houseOutofBlender.obj", "./", .25f, .25f, .25f, Pose{0.f, 1.f, -1.f, 0.f, 0.f, 0.f}));
 	// std::map<std::string, MaterialData> material =  processMaterialDataFile("../test.mtl");
 
-	for(auto& obj : objList){
-		obj->setMaterial(gray2);
-	}
+	// for(auto& obj : objList){
+	// 	obj->setMaterial(gray2);
+	// }
 }
 
 void setupCamera(void)
