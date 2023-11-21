@@ -33,10 +33,8 @@ CLASS6=QuadMesh3D
 #---------------------------------------------------------
 # CLASS6=Frogger
 # #---------------------------------------------------------
-# CLASS7=Game
-# #---------------------------------------------------------
-# CLASS8=GraphicObject
-# #---------------------------------------------------------
+CLASS7=Sphere3D
+#----------------------------------------------
 # CLASS9=Log
 # #---------------------------------------------------------
 # # CLASS8=Face
@@ -65,11 +63,11 @@ CPPFLAGS=-I. -lglut -lGLU -lGL -lstdc++ -lm -g
 #---------------------------------------------------------
 all: ${EXEC} # execute "make"
 #---------------------------------------------------------
-${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o common.h filemanagement.h glPlatform.h
-	${CC} ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o ${CLASS5}.o ${CLASS6}.o -o ${EXEC} ${CPPFLAGS}
+# ${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o common.h filemanagement.h glPlatform.h
+# 	${CC} ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o ${CLASS5}.o ${CLASS6}.o -o ${EXEC} ${CPPFLAGS}
 #---------------------------------------------------------
-# ${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o ${CLASS7}.o common.h glPlatform.h
-# 	${CC} ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o ${CLASS5}.o ${CLASS6}.o ${CLASS7}.o -o ${EXEC} ${CPPFLAGS}
+${EXEC}: ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o  ${CLASS5}.o ${CLASS6}.o ${CLASS7}.o common.h glPlatform.h filemanagement.h
+	${CC} ${EXEC}.o ${CLASS}.o ${CLASS2}.o ${CLASS3}.o ${CLASS4}.o ${CLASS5}.o ${CLASS6}.o ${CLASS7}.o -o ${EXEC} ${CPPFLAGS}
 #---------------------------------------------------------
 ${EXEC}.o: ${EXEC}.cpp 
 	${CC} -c ${EXEC}.cpp -o ${EXEC}.o ${CPPFLAGS}
@@ -92,8 +90,8 @@ ${CLASS5}.o: ${CLASS5}.cpp ${CLASS5}.h
 ${CLASS6}.o: ${CLASS6}.cpp ${CLASS6}.h
 	${CC} -c ${CLASS6}.cpp -o ${CLASS6}.o ${CPPFLAGS}
 # #---------------------------------------------------------
-# ${CLASS7}.o: ${CLASS7}.cpp ${CLASS7}.h
-# 	${CC} -c ${CLASS7}.cpp -o ${CLASS7}.o ${CPPFLAGS}
+${CLASS7}.o: ${CLASS7}.cpp ${CLASS7}.h
+	${CC} -c ${CLASS7}.cpp -o ${CLASS7}.o ${CPPFLAGS}
 # #---------------------------------------------------------
 # ${CLASS8}.o: ${CLASS8}.cpp ${CLASS8}.h
 # 	${CC} -c ${CLASS8}.cpp -o ${CLASS8}.o ${CPPFLAGS}
@@ -123,5 +121,5 @@ ${CLASS6}.o: ${CLASS6}.cpp ${CLASS6}.h
 # 	${CC} -c ${CLASS16}.cpp -o ${CLASS16}.o ${CPPFLAGS}
 #---------------------------------------------------------
 clean: # delete object files and executables
-		$(RM) ${EXEC}.o ${EXEC} ${CLASS}.o ${CLASS} ${CLASS2}.o ${CLASS2} ${CLASS3}.o ${CLASS3} ${CLASS4}.o ${CLASS4} ${CLASS5}.o ${CLASS5} ${CLASS6}.o ${CLASS6}
+		$(RM) ${EXEC}.o ${EXEC} ${CLASS}.o ${CLASS} ${CLASS2}.o ${CLASS2} ${CLASS3}.o ${CLASS3} ${CLASS4}.o ${CLASS4} ${CLASS5}.o ${CLASS5} ${CLASS6}.o ${CLASS6} ${CLASS7}.o ${CLASS7}
 #---------------------------------------------------------
