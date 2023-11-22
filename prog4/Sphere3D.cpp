@@ -64,8 +64,19 @@ void Sphere3D::draw() const
 
 	setCurrentMaterial(getMaterial());
 
+	glBegin(GL_TRIANGLE_STRIP);
+		for (unsigned int j=0; j<numRingsYZ_; j++)
+		{
+			// std::cout << 1  << " | " << j  << " | x:" << XYZ_[1][j][0]  << " | y:" << XYZ_[1][j][0]  <<" | y:" << XYZ_[1][] << " | cp:" << cp << " | sa: " << sa <<  " | z:" << radiusZ_*sp << std::endl;
+			glNormal3fv(normals_[0][0]);
+			glVertex3fv(XYZ_[0][0]);
+			glNormal3fv(normals_[1][j]);
+			glVertex3fv(XYZ_[1][j]);
+		}
+
+	glEnd();
 	//	draw all the rings
-	for (unsigned int i=0; i<numRingsXY_; i++)
+	for (unsigned int i=1; i<=(numRingsXY_); i++)
 	{
 		glBegin(GL_TRIANGLE_STRIP);
 			for (unsigned int j=0; j<numRingsYZ_; j++)
@@ -76,14 +87,25 @@ void Sphere3D::draw() const
 				glVertex3fv(XYZ_[i+1][j]);
 			}
 			// close the ring
-			// glNormal3fv(normals_[i][0]);
-			// glVertex3fv(XYZ_[i][0]);
-			// glNormal3fv(normals_[i][0]);
-			// glVertex3fv(XYZ_[i+1][0]);
+			glNormal3fv(normals_[i][0]);
+			glVertex3fv(XYZ_[i][0]);
+			glNormal3fv(normals_[i+1][0]);
+			glVertex3fv(XYZ_[i+1][0]);
 			
 		glEnd();
 	}
 	
+	glBegin(GL_TRIANGLE_STRIP);
+		for (unsigned int j=0; j<numRingsYZ_; j++)
+		{
+			glNormal3fv(normals_[(numRingsXY_)][j]);
+			glVertex3fv(XYZ_[(numRingsXY_)][j]);
+			glNormal3fv(normals_[numRingsXY_+1][0]);
+			glVertex3fv(XYZ_[numRingsXY_+1][0]);
+
+		}
+	glEnd();
+
 
 	glPopMatrix();
 }
@@ -93,7 +115,7 @@ void Sphere3D::initMeshAndNormals_()
 	//	Allocate arraus of vertex coordinates and normals
 	XYZ_ = new GLfloat**[numRingsXY_+2];
 	normals_ = new GLfloat**[numRingsXY_+2];
-	for (unsigned int i=0; i<=numRingsXY_; i++)
+	for (unsigned int i=0; i<(numRingsXY_+2); i++)
 	{
 		XYZ_[i] = new GLfloat*[numRingsYZ_];
 	    normals_[i] = new GLfloat*[numRingsYZ_];
@@ -118,33 +140,33 @@ void Sphere3D::initMeshAndNormals_()
     normals_[0][0][2] = radiusZ_;
     //	Now initialize the vertex and normal coordinates
 	//	Here I work with the ring as outer loop
-	for (unsigned int j=1; j<numRingsYZ_; j++)
+	for (unsigned int j=0; j<(numRingsYZ_); j++)
 	{
-		float theta = 2*j*M_PI/numRingsYZ_;
-		float ct = cosf(theta), st = sinf(theta);
+		float azimuthAngle = 2*j*M_PI/numRingsYZ_;
+		float ca = cosf(azimuthAngle), sa = sinf(azimuthAngle);
 		
-		for (unsigned int i=1; i<=numRingsXY_; i++)
+		for (unsigned int i=1; i<=(numRingsXY_+1); i++)
 		{
-            float phi = M_PI/2 - M_PI*i/numRingsXY_;
-    		float cp = cosf(phi), sp = sinf(phi);
-
-			XYZ_[i][j][0] = radiusX_*ct*cp;
-			XYZ_[i][j][1] = radiusY_*ct*sp;
-			XYZ_[i][j][2] = radiusZ_*st;
+			// I increased the rings by 2 to accomodate the north
+            float polorAngle = M_PI/2 - M_PI*i/(numRingsXY_+2);
+    		float cp = cosf(polorAngle), sp = sinf(polorAngle);
+			XYZ_[i][j][0] = radiusX_*cp*ca;
+			XYZ_[i][j][1] = radiusY_*cp*sa;
+			XYZ_[i][j][2] = radiusZ_*sp;
             //	the normals are constant along a slab
-            normals_[i][j][0] = cp*ct*radiusY_;
-            normals_[i][j][1] = cp*-st*radiusX_;
+            normals_[i][j][0] = cp*ca*radiusX_;
+            normals_[i][j][1] = cp*-sa*radiusY_;
             normals_[i][j][2] = sp*radiusZ_;
 
 		}
-		
+	
 	}
-    //The bottom point. 
-    XYZ_[0][0][0] = 0;
-    XYZ_[0][0][1] = 0;
-    XYZ_[0][0][2] = radiusZ_;
-    normals_[0][0][0] = 0;
-    normals_[0][0][1] = 0;
-    normals_[0][0][2] = radiusZ_;
+	
+	XYZ_[numRingsXY_+1][0][0] = 0;
+    XYZ_[numRingsXY_+1][0][1] = 0;
+    XYZ_[numRingsXY_+1][0][2] = -radiusZ_;
+    normals_[numRingsXY_+1][0][0] = 0;
+    normals_[numRingsXY_+1][0][1] = 0;
+    normals_[numRingsXY_+1][0][2] = -radiusZ_;
     
 }
